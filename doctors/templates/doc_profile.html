@@ -1,0 +1,5 @@
+{% extends 'base.html' %} {% block page_title %}{{ user }}'s Profile{% endblock %} {% block page_heading %}{{ user }}'s Profile{% endblock %} {% block content %}
+<p>{{ profile.email }}</p>
+<p>Dr. {{ profile.first_name }} {{ profile.last_name }} </p>
+<p>this is where the notifications will go</p>
+{% endblock %}

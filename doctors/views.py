@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect, reverse, HttpResponse, redirect, 
 from django.contrib import auth, messages
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
-from accounts.forms import UserLoginForm, UserRegistrationForm
+from doctors.forms import UserLoginForm, UserRegistrationForm
 
 
 
@@ -19,29 +19,6 @@ def logout(request):
     messages.success(request, "You have successfully been logged out")
     return redirect(reverse('index'))
 
-"""
-def login(request):
-   #Return a login page
-    if request.user.is_authenticated:
-        return redirect(reverse('index'))
-    if request.method == "POST":
-        login_form = UserLoginForm(request.POST)
-
-        if login_form.is_valid():
-            user = auth.authenticate(request.POST['username_or_email'],
-                                     password=request.POST['password'])
-
-            if user:
-                auth.login(request, user)
-                messages.error(request, "You have successfully logged in")
-
-                return redirect(reverse('index'))
-            else:
-                login_form.add_error(None, "Your username or password is incorrect")
-    else:
-        login_form = UserLoginForm()
-    return render(request, 'login.html', {'login_form': login_form})
-"""
 def login(request):
     """Return a login page"""
     if request.user.is_authenticated:
@@ -56,13 +33,16 @@ def login(request):
 
             if user:
                 auth.login(user=user, request=request)
-                messages.success(request, "You have successfully logged in!")
-                return redirect(reverse('index'))
+                if user.is_staff:
+                    messages.success(request, "You have successfully logged in!")
+                    return redirect(reverse('index'))
+                else:
+                    return redirect(reverse('correction'))
             else:
                 login_form.add_error(None, "Your username or password is incorrect")
     else:
         login_form = UserLoginForm()
-    return render(request, 'login.html', {'login_form': login_form})
+    return render(request, 'doc_login.html', {'login_form': login_form})
 
 
 def registration(request):
@@ -70,19 +50,20 @@ def registration(request):
     if request.method == 'POST':
         form = UserRegistrationForm(request.POST)
         if form.is_valid():
+            User.is_staff = True
             form.save()
             first_name=form.cleaned_data.get('first_name')
             last_name=form.cleaned_data.get('last_name')
 
            
-            messages.success(request, f'Account Created for {first_name} {last_name}!')
+            messages.success(request, f'Account Created for Dr. {first_name} {last_name}!')
             return redirect('index')
     else:
         form = UserRegistrationForm()
-    return render(request, 'registration.html', {'form':form})
+    return render(request, 'doc_registration.html', {'form':form})
 
 def profile(request):
-    """The user's profile page"""
+    """The Doctor's profile page"""
     user = User.objects.get(email=request.user.email)
-    return render(request, 'profile.html', {"profile": user})
+    return render(request, 'doc_profile.html', {"profile": user})
 

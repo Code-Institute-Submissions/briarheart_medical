@@ -1,5 +1,7 @@
 {% extends 'base.html' %} {% load crispy_forms_tags %} {% block page_title %}Login Page{% endblock %} {% block page_heading %}Home{% endblock %} {% block content %}
 
+    <h2>The Portal you are using is incorrect. Please log in Bellow</h2>
+
     <form method="post" action="{% url 'login' %}?next={{ next }}" class="accountform">
         <fieldset class="form-group">
             <legend>Login</legend>

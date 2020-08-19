@@ -10,6 +10,7 @@ class UserLoginForm(forms.Form):
 
 
 class UserRegistrationForm(UserCreationForm):
+    User.is_staff = True
     first_name = forms.CharField(label='First Name')
     last_name = forms.CharField(label='Last Name')
     password1 = forms.CharField(label='Password', widget=forms.PasswordInput)
@@ -17,10 +18,12 @@ class UserRegistrationForm(UserCreationForm):
         label='Password Confirmation',
         widget=forms.PasswordInput
     )
+    
+
 
     class Meta:
         model = User
-        fields = ['first_name', 'last_name','username', 'email', 'password1', 'password2']
+        fields = ['first_name', 'last_name','username', 'email', 'password1', 'password2', 'is_staff']
 
     def clean_email(self):
         email = self.cleaned_data.get('email')
