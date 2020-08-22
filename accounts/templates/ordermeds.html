@@ -1,0 +1,25 @@
+{% extends 'base.html' %} {% load crispy_forms_tags %} {% block page_title %}{{ user.first_name }}'s user{% endblock %} {% block page_heading %}{{ user.first_name }}'s user{% endblock %} {% block content %}
+
+<h1>Set up Your regular medications</h1>
+
+<br>
+<h3>Hello {{ user.first_name }} {{ user.last_name }}</h3>
+<br>
+
+
+
+<div class="content-section">
+
+     <form method="post" action="{% url 'addmeds' %}">
+        {% csrf_token %}
+            <fieldset class="for-group">
+                <legend class="borde-bottom mb-4">Add medicines for a convient checkout process</legend>
+            {{ form|crispy }}
+            </fieldset>
+            <div class="form-group">
+                <button class="btn btn-outline-info" type="submit">Add meds</button>
+            </div>
+    </form>
+</div>
+
+{% endblock %}

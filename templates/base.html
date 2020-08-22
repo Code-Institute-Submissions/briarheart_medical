@@ -31,7 +31,9 @@
                 <!--Patients Authenticated landing page-->
                 {% elif user.is_authenticated %}
                 <li class="nav-item"><a class="nav-link" href="{% url 'profile' %}">Profile</a></li>
+                <li class="nav-item"><a class="nav-link" href="{% url 'addmeds' %}">Add medications</a></li>
                 <li class="nav-item"><a class="nav-link" href="{% url 'logout' %}">Logout</a></li>
+                
 
                 <!--Unauthenticated landing page-->
             {% else %}
