@@ -1,4 +1,4 @@
-{% extends 'base.html' %} {% load crispy_forms_tags %} {% block page_title %}Registration Page{% endblock %} {% block page_heading %}User Registration{% endblock %} {% block content %}
+{% extends 'base.html' %} {% load crispy_forms_tags %} {% block page_title %}Registration Page{% endblock %} {% block page_heading %}UDoctor Registration{% endblock %} {% block content %}
 
 
 <div class="content-section">
@@ -8,13 +8,13 @@
         {% csrf_token %}
             <fieldset class="for-group">
                 <legend class="borde-bottom mb-4">Doctors Registration</legend>
-            {{ form|crispy }}
+            {{ doc_form|crispy }}
             </fieldset>
             <div class="form-group">
                 <button class="btn btn-outline-info" type="submit">Sign up</button>
             </div>
 </form>
 
-
+</div>
 {% endblock %}
 

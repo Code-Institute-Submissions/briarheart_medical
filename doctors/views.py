@@ -2,9 +2,7 @@ from django.shortcuts import render, redirect, reverse, HttpResponse, redirect, 
 from django.contrib import auth, messages
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
-from doctors.forms import UserLoginForm, UserRegistrationForm
-
-
+from doctors.forms import UserLoginForm, DocRegistrationForm
 
 
 
@@ -27,7 +25,7 @@ def login(request):
         login_form = UserLoginForm(request.POST)
 
         if login_form.is_valid():
-            user = auth.authenticate(username=request.POST['username'],
+            user = auth.authenticate(username=request.POST['email'],
                                     password=request.POST['password'])
             
 
@@ -45,25 +43,26 @@ def login(request):
     return render(request, 'doc_login.html', {'login_form': login_form})
 
 
-def registration(request):
-    """Render the registration page"""
+def doc_registration(request):
+    """Render the Doctor registration page"""
     if request.method == 'POST':
-        form = UserRegistrationForm(request.POST)
-        if form.is_valid():
-            User.is_staff = True
-            form.save()
-            first_name=form.cleaned_data.get('first_name')
-            last_name=form.cleaned_data.get('last_name')
+        doc_form = DocRegistrationForm(request.POST)
+        if doc_form.is_valid():            
+            doc_form.save()
+            first_name=doc_form.cleaned_data.get('first_name')
+            last_name=doc_form.cleaned_data.get('last_name')
+            title=doc_form.cleaned_data.get('title')
 
            
-            messages.success(request, f'Account Created for Dr. {first_name} {last_name}!')
+            messages.success(request, f'Account Created for {title}. {first_name} {last_name}!')
             return redirect('index')
     else:
-        form = UserRegistrationForm()
-    return render(request, 'doc_registration.html', {'form':form})
+        doc_form = DocRegistrationForm()
+    return render(request, 'doc_registration.html', {'doc_form':doc_form})
 
 def profile(request):
     """The Doctor's profile page"""
     user = User.objects.get(email=request.user.email)
     return render(request, 'doc_profile.html', {"profile": user})
+
 
