@@ -1,5 +1,5 @@
 {% load static %}
-{% load bootstrap4 %}
+
 <html>
 
 <head>
@@ -18,7 +18,7 @@
     <nav class="navbar navbar-light" style="background-color: #e3f2fd;">
         <ul clss="navbar-nav mr-auto">
             <!--Superuser landing page-->
-            {% if user.is_superuser%}
+            {% if user.is_superuser %}
                 <li class="nav-item"><a class="nav-link" href="{% url 'doc_registration' %}">Register Doc</a></li>
                 <li class="nav-item"><a class="nav-link" href="{% url 'registration' %}">Register Patient</a></li>
                 <li class="nav-item"><a class="nav-link" href="{% url 'logout' %}">Logout</a></li>
@@ -37,8 +37,8 @@
 
                 <!--Unauthenticated landing page-->
             {% else %}
-            <li><a href="{% url 'login' %}">Patient Login</a></li>
-            <li><a href="{% url 'doc_login' %}">Doctor Login</a></li>
+            <li><a href="{% url 'login' %}">Login Here</a></li>
+           
             <li><a href="{% url 'registration' %}">Register</a></li>
             {% endif %}
             

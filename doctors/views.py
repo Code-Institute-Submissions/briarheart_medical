@@ -25,7 +25,7 @@ def login(request):
         login_form = UserLoginForm(request.POST)
 
         if login_form.is_valid():
-            user = auth.authenticate(username=request.POST['email'],
+            user = auth.authenticate(username=request.POST['username'],
                                     password=request.POST['password'])
             
 

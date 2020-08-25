@@ -1,5 +1,12 @@
 {% extends 'base.html' %} {% block page_title %}{{ user.first_name }}'s Profile{% endblock %} {% block page_heading %}{{ user.first_name }}'s Profile{% endblock %} {% block content %}
 <p>{{ profile.email }}</p>
-<p>{{ profile.title}} {{ profile.first_name }} {{ profile.last_name }} </p>
-<p>{{ profile.address1}} {{ profile.address2}} {{ profile.city }} {{ profile.postcode }}</p>
+
+<h3>Hello {{ profile.first_name }} {{ profile.last_name }},</h3>
+
+    {% for obj in obj %}
+<p>Your request for {{ obj.medicine_name }} at {{ obj.dose }}mg will be delivered to {{ obj.address1 }}, {{ obj.address2 }}, {{ obj.city }}, {{ obj.postcode}} </p>
+    <hr>
+    {%endfor%}
+
+
 {% endblock %}

@@ -3,6 +3,7 @@ from django.contrib import auth, messages
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from accounts.forms import UserLoginForm, UserRegistrationForm
+from medications.models import meds
 
 
 
@@ -62,5 +63,10 @@ def registration(request):
 def profile(request):
     """The user's profile page"""
     user = User.objects.get(email=request.user.email)
-    return render(request, 'profile.html', {"profile": user})
+    _id=request.user.id
+    obj = meds.objects.filter(patient=_id)
+    
+    print(_id)
+
+    return render(request, 'profile.html', {"profile": user, "obj":obj} )
 

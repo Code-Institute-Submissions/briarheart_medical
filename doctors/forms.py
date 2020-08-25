@@ -19,23 +19,17 @@ class DocRegistrationForm(UserCreationForm):
 
    ]
     title = forms.ChoiceField(choices=title_choice)
-    User.is_staff = True
     first_name = forms.CharField(label='First Name')
     last_name = forms.CharField(label='Last Name')
-    medical_num = forms.CharField(label='Medical Licence')
-    email = forms.EmailField(label="Email")
-    username =  forms.CharField(label='Username')
     password1 = forms.CharField(label='Password', widget=forms.PasswordInput)
     password2 = forms.CharField(
         label='Password Confirmation',
         widget=forms.PasswordInput
     )
-    
-
 
     class Meta:
-       model = User
-       fields = ['title','first_name', 'last_name', 'email','username', 'password1', 'password2']
+        model = User
+        fields = ['title', 'first_name', 'last_name','username', 'email', 'password1', 'password2', 'is_staff']
 
     def clean_email(self):
         email = self.cleaned_data.get('email')

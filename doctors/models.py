@@ -18,3 +18,5 @@ class doctors(models.Model):
         return '{} {} {} {} {}'.format(self.title, self.first_name, self.last_name, self.email, self.medical_num)
 
 
+USERNAME_FIELD = 'email'
+REQUIRED_FIELDS = ['username']
