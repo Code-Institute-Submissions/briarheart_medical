@@ -7,8 +7,10 @@ from django.contrib.auth.models import User
 # Create your views here.
 def meds(request):
     """Return the Ordermeds.html file"""
+
+    
     if request.method == 'POST':
-        form = newmeds(request.POST)
+        form = newmeds(request.POST, user=request.user)
         
         if form.is_valid():
             
@@ -27,17 +29,6 @@ def meds(request):
             return redirect('index')
         else:
              form.add_error(None, "There has been an issue with your order. Please try again.")
-    form = newmeds()
+    form = newmeds(user=request.user)
     
-    return render(request, 'ordermeds.html', {'form':form}, )
-
-def addmeds(request):
-
-    """"""
-    newmedsform = newmeds(request.POST)
-
-    if newmedsform.is_valid():
-
-        new_meds = newmedsform.save()
-
-    return redirect('index')
+    return render(request, 'ordermeds.html', {'form':form} )

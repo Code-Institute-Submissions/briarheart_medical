@@ -14,9 +14,13 @@ class doctors(models.Model):
     password1 = models.CharField(max_length=15)
     password2 = models.CharField(max_length=15)
     
+
+
     def __str__(self):
         return '{} {} {} {} {}'.format(self.title, self.first_name, self.last_name, self.email, self.medical_num)
 
+    class Meta:
+        verbose_name_plural = "Doctors"
 
 USERNAME_FIELD = 'email'
 REQUIRED_FIELDS = ['username']

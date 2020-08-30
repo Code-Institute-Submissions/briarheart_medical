@@ -4,7 +4,8 @@
 
 <head>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-
+<link rel="stylesheet" href="{% static 'stripe.css' %}">
+<script src="https://js.stripe.com/v3/"></script>
     
     
 <title>{% block page_title %}{% endblock %}</title>
@@ -56,7 +57,10 @@
                 {{ message }}
               </div>
             {% endfor %}
+            
           {% endif %}
+          <br>
+          <img class="rounded mx-auto d-block"  src="{% static 'img/briarheart.jpg' %}" height="200" width="200">
           {% block content %}{% endblock %}
         </div>
        

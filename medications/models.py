@@ -6,14 +6,25 @@ from django.contrib.auth.models import User
 class meds(models.Model):
     medicine_name = models.CharField(max_length=45)
     dose = models.CharField(max_length=3)
-    patient = models.ForeignKey(User,on_delete=models.SET_NULL, null=True)
+    patient = models.ForeignKey(User, related_name="+", on_delete=models.SET_NULL, null=True)
     address1 = models.CharField(max_length=20)
     address2 = models.CharField(max_length=20)
     city = models.CharField(max_length=15)
     postcode = models.CharField(max_length=8)
-    doctor = models.ForeignKey(User, related_name="+", on_delete=models.SET_NULL, null=True)
+    doctor = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)
+    approved = models.BooleanField(default=False)
+    declined = models.BooleanField(default=False)
+    actioned = models.BooleanField(default=False)
+    read = models.BooleanField(default=False)
     
 
     def __str__(self):
-        return '{} {} {} {} {}'.format(self.medicine_name, self.dose, self.patient, self.city, self.postcode)
+        
+        return 'Medicine: {} at {}mg toapproved by DR. {} to {}, {}'.format(self.medicine_name, self.dose, self.doctor.last_name , self.city, self.postcode)
+        
+
+    
+
+    class Meta:
+            verbose_name_plural = "Medications"
 

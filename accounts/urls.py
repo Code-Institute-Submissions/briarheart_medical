@@ -15,7 +15,7 @@ Including another URLconf
 """
 from django.conf.urls import url
 from django.contrib import admin
-from .views import index, logout, login, registration, profile
+from .views import index, logout, login, registration, profile, successMsg, charge
 from medications.views import meds
 
 
@@ -28,5 +28,5 @@ urlpatterns = [
     url(r'^register/$', registration, name="registration"),
     url(r'^profile/$', profile, name="profile"),
     url(r'^meds/$', meds, name="addmeds"),
-   
-]
+    
+    ]

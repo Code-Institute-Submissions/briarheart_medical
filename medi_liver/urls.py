@@ -18,6 +18,10 @@ from django.contrib import admin
 from accounts import urls as urls_accounts
 from accounts.views import index
 from doctors import urls as urls_doctors
+from accounts.views import charge, successMsg, payment, update_med, delete_med, mark_as_read
+from doctors.views import approve_med, decline_med
+from django.urls import path
+
 
 
 
@@ -26,4 +30,13 @@ urlpatterns = [
     url(r'^$', index, name="index"),
     url(r'^accounts/', include(urls_accounts)),
     url(r'^doctors/', include(urls_doctors)),
+    url(r'^payment/', payment, name="payment"),
+    path('charge/', charge, name="charge"),
+    path('success/<str:args>/', successMsg, name="success"),
+    path('update_meds/<str:pk>/', update_med, name="update_med" ),
+    path('delete_meds/<str:pk>/', delete_med, name="delete_med" ),
+    path('approve/<str:pk>/', approve_med, name="approve_med"),
+    path('decline/<str:pk>/', decline_med, name="decline_med"),
+    path('mark_as_read/<str:pk>/', mark_as_read, name="mark_as_read"),
+    path('', include('payments.urls')),
 ]

@@ -12,13 +12,22 @@
 
      <form method="post" action="{% url 'addmeds' %}">
         {% csrf_token %}
-            <fieldset class="for-group">
+            <fieldset class="form-group">
                 <legend class="borde-bottom mb-4">Add medicines for a convient checkout process</legend>
             {{ form|crispy }}
-            </fieldset>
-            <div class="form-group">
+
+
+
+                
+                
+                <div class="form-group">
                 <button class="btn btn-outline-info" type="submit">Add meds</button>
             </div>
+
+                </form>
+
+            </fieldset>
+            
     </form>
 </div>
 

@@ -3,7 +3,7 @@ from django.contrib import auth, messages
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from doctors.forms import UserLoginForm, DocRegistrationForm
-
+from medications.models import meds
 
 
 def index(request):
@@ -63,6 +63,37 @@ def doc_registration(request):
 def profile(request):
     """The Doctor's profile page"""
     user = User.objects.get(email=request.user.email)
-    return render(request, 'doc_profile.html', {"profile": user})
+    _id=request.user.id
+    obj = meds.objects.filter(doctor=_id)
+    return render(request, 'doc_profile.html', {"profile": user, "obj":obj})
 
+#UPDATE
+def approve_med(request, pk):
+    """update meds model to approve order"""
+    
+    order = meds.objects.get(id=pk)
+    patient = order.patient
+    if request.method == "POST":
+        order.declined = False
+        order.actioned = True
+        order.approved = True
+        order.save()
+        return redirect('doc_profile')
+    
+    return render(request, 'approve.html',  {'item':order, "patient":patient} )
 
+#UPDATE
+def decline_med(request, pk):
+    """update meds model to decline order order"""
+    
+    order = meds.objects.get(id=pk)
+    patient = order.patient
+
+    if request.method == "POST":
+        order.approved = False
+        order.actioned = True
+        order.decline = True
+        order.save()
+        return redirect('doc_profile')
+    
+    return render(request, 'decline.html', {'item':order, "patient":patient} )

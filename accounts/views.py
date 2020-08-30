@@ -2,10 +2,16 @@ from django.shortcuts import render, redirect, reverse, HttpResponse, redirect, 
 from django.contrib import auth, messages
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
+from django.http import JsonResponse, HttpResponse
 from accounts.forms import UserLoginForm, UserRegistrationForm
 from medications.models import meds
+from medications.forms import newmeds
 
+import stripe
+import os
+import env
 
+stripe.api_key = os.environ.get('STRIPE_SECRET')
 
 
 
@@ -44,6 +50,39 @@ def login(request):
     return render(request, 'login.html', {'login_form': login_form})
 
 
+def charge(request):
+        amount = 5
+        if request.method == "POST":
+            print('Data' , request.POST)
+        
+        session = stripe.checkout.Session.create(
+        payment_method_types=['card'],
+        line_items=[{
+            'price': '{{prod_Hv4AiNmlXYlbih}}',
+            'quantity': 1,
+        }],
+        mode='subscription',
+        success_url='https://example.com/success?session_id={CHECKOUT_SESSION_ID}',
+        cancel_url='https://example.com/cancel',
+)
+
+        return redirect(reverse('success', args = [amount]))
+
+def successMsg(request, args):
+    _id=request.user.id
+    obj = meds.objects.filter(patient=_id)
+
+    amount = args
+    return render(request, 'success.html', {'amount': amount, 'obj':obj})
+
+def payment(request):
+    """Return the paymets.html file"""
+    return render(request,  'payment.html')
+
+#   CRUD
+
+#CREATE
+
 def registration(request):
     """Render the registration page"""
     if request.method == 'POST':
@@ -60,6 +99,7 @@ def registration(request):
         form = UserRegistrationForm()
     return render(request, 'registration.html', {'form':form})
 
+#READ
 def profile(request):
     """The user's profile page"""
     user = User.objects.get(email=request.user.email)
@@ -69,4 +109,48 @@ def profile(request):
     print(_id)
 
     return render(request, 'profile.html', {"profile": user, "obj":obj} )
+
+#UPDATE
+def update_med(request, pk):
+    """Return the updatemeds.html file"""
+    
+    order = meds.objects.get(id=pk)
+    form = newmeds(instance=order, user=request.user)
+
+    if request.method == 'POST':
+        form=newmeds(request.POST, instance=order, user=request.user)
+        if form.is_valid():            
+            form.save()
+            return redirect('index')
+    
+
+    return render(request, 'updatemeds.html', {'form':form} )
+
+
+#DELETE
+
+def delete_med(request, pk):
+    """Return the updatemeds.html file"""
+    
+    order = meds.objects.get(id=pk)
+    if request.method == "POST":
+		    order.delete()
+		    return redirect('profile')
+    
+
+    return render(request, 'delete.html', {'item':order} )
+
+
+def mark_as_read(request, pk):
+    """update meds model to mark as read"""
+    
+    order = meds.objects.get(id=pk)
+   
+
+    if request.method == "POST":
+        order.read = True
+        order.save()
+        return redirect('profile')
+    
+    return render(request, 'confirmation.html', {'item':order})
 
