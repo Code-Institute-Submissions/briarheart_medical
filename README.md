@@ -97,3 +97,14 @@ Dr. Smith
 2.	Username is case sensitive – gives incorrect log in waring if wrong case is entered
 3.	 Accept button asks correctly if the doctor confirms that the doctor wants to do Accept request, decline also confirms correctly. Both cancel buttons on the confirmation page asks user back to their home page 
 
+
+## Deployment
+
+
+
+## Acknowledgements
+
+- I recieved Inspiration from the project from my Mentor Rahul, he help me out tremedously with the log in issues i was having, as well as the Tutors at the code institute
+
+- Strip payment had been a particular issue for me so I adapted a tutorial from "https://testdriven.io/blog/django-stripe-tutorial/" to suit my site. The Auther of the artical is Michael Herman
+
