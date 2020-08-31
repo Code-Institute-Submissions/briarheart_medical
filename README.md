@@ -1,4 +1,5 @@
 # briarheart_medical
+<<<<<<< HEAD
 ## Medication delivery database for Briarheart medial services  
 
 The way I approached this project was “find a problem and solve it”.  I Accomplished this by noticing that to get though to my health centre to reorder prescriptions I need to call them several times as they are normally very busy, so I thought I could fix this by engineering a system to streamline the process. Instead of calling multiple times to get hold of a receptionist for them to take a note of my medications, my details and for what doctor, I built a system just for that. The Doctors are registered as they join the practice, patients register as they require the service. Patients then send a request to the doctors for medication who, then check to see if that is what they have received previously, if so, they can approve it. If not, they can decline it. The Patient gets an update in the form of a coloured notice on their profile home page where they can pay for the delivery charge for the medications to be sent to their home. Patients can view outstanding requests on their home page ie any they have made that haven’t been approved, approved and declined requests.
@@ -108,3 +109,6 @@ Dr. Smith
 
 - Strip payment had been a particular issue for me so I adapted a tutorial from "https://testdriven.io/blog/django-stripe-tutorial/" to suit my site. The Auther of the artical is Michael Herman
 
+=======
+Medication delivery database for Briarheart medial services  
+>>>>>>> 27185465653bdadd9c4259e549719baed016a333

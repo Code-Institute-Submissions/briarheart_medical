@@ -7,6 +7,16 @@ from accounts.forms import UserLoginForm, UserRegistrationForm
 from medications.models import meds
 from medications.forms import newmeds
 
+<<<<<<< HEAD
+=======
+import stripe
+import os
+import env
+
+stripe.api_key = os.environ.get('STRIPE_SECRET')
+
+
+>>>>>>> 27185465653bdadd9c4259e549719baed016a333
 
 def index(request):
     """Return the index.html file"""
@@ -43,6 +53,38 @@ def login(request):
     return render(request, 'login.html', {'login_form': login_form})
 
 
+<<<<<<< HEAD
+=======
+def charge(request):
+        amount = 5
+        if request.method == "POST":
+            print('Data' , request.POST)
+        
+        session = stripe.checkout.Session.create(
+        payment_method_types=['card'],
+        line_items=[{
+            'price': '{{prod_Hv4AiNmlXYlbih}}',
+            'quantity': 1,
+        }],
+        mode='subscription',
+        success_url='https://example.com/success?session_id={CHECKOUT_SESSION_ID}',
+        cancel_url='https://example.com/cancel',
+)
+
+        return redirect(reverse('success', args = [amount]))
+
+def successMsg(request, args):
+    _id=request.user.id
+    obj = meds.objects.filter(patient=_id)
+
+    amount = args
+    return render(request, 'success.html', {'amount': amount, 'obj':obj})
+
+def payment(request):
+    """Return the paymets.html file"""
+    return render(request,  'payment.html')
+
+>>>>>>> 27185465653bdadd9c4259e549719baed016a333
 #   CRUD
 
 #CREATE
@@ -118,6 +160,9 @@ def mark_as_read(request, pk):
     
     return render(request, 'confirmation.html', {'item':order})
 
+<<<<<<< HEAD
 def home(request):
     """Return the home.html file"""
     return render(request,  'home.html')
+=======
+>>>>>>> 27185465653bdadd9c4259e549719baed016a333

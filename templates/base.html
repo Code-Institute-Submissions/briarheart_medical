@@ -1,5 +1,6 @@
 {% load static %}
 
+<<<<<<< HEAD
 <!DOCTYPE html>
 <html lang=en>
 
@@ -20,6 +21,17 @@
     <script src="{% static 'main.js' %}"></script>
     <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
 
+=======
+<html>
+
+<head>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<link rel="stylesheet" href="{% static 'stripe.css' %}">
+<script src="https://js.stripe.com/v3/"></script>
+    
+    
+<title>{% block page_title %}{% endblock %}</title>
+>>>>>>> 27185465653bdadd9c4259e549719baed016a333
 </head>
 
 <body>
@@ -28,7 +40,11 @@
     </h1>
 
     <nav class="navbar navbar-light" style="background-color: #e3f2fd;">
+<<<<<<< HEAD
         <ul class="navbar-nav mr-auto">
+=======
+        <ul clss="navbar-nav mr-auto">
+>>>>>>> 27185465653bdadd9c4259e549719baed016a333
             <!--Superuser landing page-->
             {% if user.is_superuser %}
                 <li class="nav-item"><a class="nav-link" href="{% url 'doc_registration' %}">Register Doc</a></li>
@@ -43,7 +59,11 @@
                 <!--Patients Authenticated landing page-->
                 {% elif user.is_authenticated %}
                 <li class="nav-item"><a class="nav-link" href="{% url 'profile' %}">Profile</a></li>
+<<<<<<< HEAD
                 <li class="nav-item"><a class="nav-link" href="{% url 'addmeds' %}">Add Medications</a></li>
+=======
+                <li class="nav-item"><a class="nav-link" href="{% url 'addmeds' %}">Add medications</a></li>
+>>>>>>> 27185465653bdadd9c4259e549719baed016a333
                 <li class="nav-item"><a class="nav-link" href="{% url 'logout' %}">Logout</a></li>
                 
 
@@ -57,9 +77,12 @@
         </ul>
     </nav>
 
+<<<<<<< HEAD
 
 
 
+=======
+>>>>>>> 27185465653bdadd9c4259e549719baed016a333
     <hr>
     
      <main role="main" class="container">
@@ -74,7 +97,11 @@
             
           {% endif %}
           <br>
+<<<<<<< HEAD
           <img class="rounded mx-auto d-block" alt="" src="{% static 'img/briarheart.jpg' %}" height="200" width="200">
+=======
+          <img class="rounded mx-auto d-block"  src="{% static 'img/briarheart.jpg' %}" height="200" width="200">
+>>>>>>> 27185465653bdadd9c4259e549719baed016a333
           {% block content %}{% endblock %}
         </div>
        

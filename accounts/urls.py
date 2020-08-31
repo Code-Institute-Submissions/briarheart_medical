@@ -15,10 +15,15 @@ Including another URLconf
 """
 from django.conf.urls import url
 from django.contrib import admin
+<<<<<<< HEAD
 from .views import index, logout, login, registration, profile,  home
 from medications.views import meds
 from django.urls import path
 from payments.views import stripe_config, create_checkout_session
+=======
+from .views import index, logout, login, registration, profile, successMsg, charge
+from medications.views import meds
+>>>>>>> 27185465653bdadd9c4259e549719baed016a333
 
 
 
@@ -30,7 +35,10 @@ urlpatterns = [
     url(r'^register/$', registration, name="registration"),
     url(r'^profile/$', profile, name="profile"),
     url(r'^meds/$', meds, name="addmeds"),
+<<<<<<< HEAD
     url(r'^pay/$', home, name="pay"),
     
+=======
+>>>>>>> 27185465653bdadd9c4259e549719baed016a333
     
     ]

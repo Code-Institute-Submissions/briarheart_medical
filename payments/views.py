@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import stripe
 from django.conf import settings
 from django.http.response import JsonResponse, HttpResponse
@@ -137,3 +138,11 @@ def stripe_webhook(request):
         # TODO: run some custom code here
 
     return HttpResponse(status=200)
+=======
+from django.shortcuts import render
+
+from django.views.generic.base import TemplateView
+
+class HomePageView(TemplateView):
+    template_name = 'home.html'
+>>>>>>> 27185465653bdadd9c4259e549719baed016a333
