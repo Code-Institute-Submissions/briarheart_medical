@@ -109,6 +109,3 @@ Dr. Smith
 
 - Strip payment had been a particular issue for me so I adapted a tutorial from "https://testdriven.io/blog/django-stripe-tutorial/" to suit my site. The Auther of the artical is Michael Herman
 
-=======
-Medication delivery database for Briarheart medial services  
->>>>>>> 27185465653bdadd9c4259e549719baed016a333

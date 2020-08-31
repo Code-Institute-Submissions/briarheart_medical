@@ -7,17 +7,8 @@ from accounts.forms import UserLoginForm, UserRegistrationForm
 from medications.models import meds
 from medications.forms import newmeds
 
-<<<<<<< HEAD
-=======
+
 import stripe
-import os
-import env
-
-stripe.api_key = os.environ.get('STRIPE_SECRET')
-
-
->>>>>>> 27185465653bdadd9c4259e549719baed016a333
-
 def index(request):
     """Return the index.html file"""
     return render(request,  'index.html')
@@ -53,8 +44,6 @@ def login(request):
     return render(request, 'login.html', {'login_form': login_form})
 
 
-<<<<<<< HEAD
-=======
 def charge(request):
         amount = 5
         if request.method == "POST":
@@ -84,7 +73,6 @@ def payment(request):
     """Return the paymets.html file"""
     return render(request,  'payment.html')
 
->>>>>>> 27185465653bdadd9c4259e549719baed016a333
 #   CRUD
 
 #CREATE
@@ -160,9 +148,6 @@ def mark_as_read(request, pk):
     
     return render(request, 'confirmation.html', {'item':order})
 
-<<<<<<< HEAD
 def home(request):
     """Return the home.html file"""
     return render(request,  'home.html')
-=======
->>>>>>> 27185465653bdadd9c4259e549719baed016a333
