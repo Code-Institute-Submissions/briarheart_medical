@@ -1,0 +1,1 @@
+web: gunicorn medi_liver.wsgi:application
