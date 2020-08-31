@@ -1,0 +1,35 @@
+{% extends 'base.html' %} {% block page_title %} Dr. {{ profile.last_name }}'s Profile{% endblock %} {% block page_heading %}Dr. {{ profile.last_name }}'s Profile{% endblock %} {% block content %}
+
+<h3>Hello Dr {{ profile.first_name }} {{ profile.last_name }},</h3>
+    <br>
+    <hr>
+<h5>The bellow are your current requests so far for Medications:</h5>
+    <hr>
+    
+    
+    {% for obj in obj %}
+        {% if obj.actioned == false %}
+            
+            <div class="row">
+            <p>
+                <div class="col-md-8">
+                    <b> {{ obj.patient.first_name }} {{ obj.patient.last_name }}</b> Has requested <b>{{ obj.medicine_name }} {{ obj.dose }}mg</b> to be delivered to <b>{{ obj.city }}</b> , <b>{{ obj.postcode}}</b>
+                </div>  
+                <div class="offset-md-1">
+                    <a href="{% url 'approve_med' obj.id %}"  class="btn btn-outline-success mb-1" >Approve</a> 
+                    <a href="{% url 'decline_med' obj.id %}" class="btn btn-outline-danger mb-1 ml-2">Decline</a>
+                </div>
+            </p>
+            <br>
+         </div>
+        
+         {% endif %}          
+        
+        {% empty %}
+        <p>There are no Medications to approve yet!</p>
+        
+    {%endfor%}
+ 
+    
+    <hr>
+{% endblock %}

@@ -1,0 +1,20 @@
+{% extends 'base.html' %} {% load crispy_forms_tags %} {% block page_title %}Registration Page{% endblock %} {% block page_heading %}UDoctor Registration{% endblock %} {% block content %}
+
+
+<div class="content-section">
+
+
+     <form method="post" action="{% url 'doc_registration' %}">
+        {% csrf_token %}
+            <fieldset class="for-group">
+                <legend class="borde-bottom mb-4">Doctors Registration</legend>
+            {{ doc_form|crispy }}
+            </fieldset>
+            <div class="form-group">
+                <button class="btn btn-outline-info" type="submit">Sign up</button>
+            </div>
+</form>
+
+</div>
+{% endblock %}
+

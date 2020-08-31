@@ -1,0 +1,15 @@
+{% extends 'base.html' %} {% load crispy_forms_tags %} {% block page_title %}Doctor Login Page{% endblock %} {% block page_heading %}Home{% endblock %} {% block content %}
+
+    <form method="post" action="{% url 'doc_login' %}?next={{ next }}" class="accountform">
+        <fieldset class="form-group">
+            <legend>Doctors Login</legend>
+            {% csrf_token %}
+            {{ login_form | crispy }}
+            
+             <p><a href="#">Forgot my password</a></p>
+              <small class="text-muted">Not a doctor?<a class="ml-2" href="{% url 'login' %}">Sign in </a></p></small>
+            <button type="submit" class="btn btn-primary">Login</button>
+        </fieldset>
+    </form>
+
+{% endblock %}

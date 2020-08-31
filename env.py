@@ -1,0 +1,4 @@
+import os 
+
+os.environ.setdefault("STRIPE_PUBLISHABLE", "pk_test_51H6KaxG5XivupY0xarCTS4daUR3XxtWstOziC42iQ3fqAsVMwlTbKLZ6eViyRtRrA4RIWAo9PbS2a12yMsRFPfxv00M4t4F29Y")
+os.environ.setdefault("STRIPE_SECRET", "sk_test_51H6KaxG5XivupY0xSMDYHtXaoKFFQYz85RHmGEafmIqkUsUfUyOwKFUVS8WLcSPh24pY2brhc96useodBcs0oaIF00KHKROc21")
