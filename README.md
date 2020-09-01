@@ -103,7 +103,7 @@ Dr. Smith
 
 The process of deploment for my project has been different to my previous projects, at the last minute i ran out of credit in GITPOD and had to redeploy through AWS Cloud 9, My commits have been fairly regular and I have been trying to use meaning full commit messages throughout the project. I sent all my static files and my image to S3 I created a new user with new permisions and a new S3 bucket. I got my keys and put them in the heroku config vars
 
-My function application can be found at [Heroku]()
+My working application can be found at [Heroku]()
 
 
 And at [Github](https://github.com/Robertpokane/briarheart_medical)
