@@ -35,7 +35,7 @@ SECRET_KEY = 'm5exhz#3=_p@xvn+mlwtmnd#+#23rh*(jcpmy*-r+gc+bdb1w7'
 DEBUG = True
 
  
-ALLOWED_HOSTS = ['7f403f7cf17a4931845b0aa936c64350.vfs.cloud9.us-east-1.amazonaws.com']
+ALLOWED_HOSTS = [('7f403f7cf17a4931845b0aa936c64350.vfs.cloud9.us-east-1.amazonaws.com'), ('briarheart.herokuapp.com')]
   
 
 
