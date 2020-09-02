@@ -20,7 +20,7 @@ class meds(models.Model):
 
     def __str__(self):
         
-        return 'Medicine: {} at {}mg toapproved by DR. {} to {}, {}'.format(self.medicine_name, self.dose, self.doctor.last_name , self.city, self.postcode)
+        return 'Medicine: {} at {}mg to be approved by DR. {} to {}, {}'.format(self.medicine_name, self.dose, self.doctor.last_name , self.city, self.postcode)
         
 
     

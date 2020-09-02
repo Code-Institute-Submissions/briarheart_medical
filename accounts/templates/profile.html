@@ -9,7 +9,7 @@
 
 
 <h3>Hello {{ profile.first_name }} {{ profile.last_name }},</h3>
-
+<br>
     {% for obj in obj %}
         {% if obj.read %}
 
@@ -56,6 +56,8 @@
         {% endif %}
         {% endif %}
 
+        {% empty %}
         
+        <p>There are no Medications to be approved yet!</p>
 {% endfor %}
 {% endblock %}

@@ -1,5 +1,5 @@
 # briarheart_medical
-<<<<<<< HEAD
+
 ## Medication delivery database for Briarheart medial services  
 
 The way I approached this project was “find a problem and solve it”.  I Accomplished this by noticing that to get though to my health centre to reorder prescriptions I need to call them several times as they are normally very busy, so I thought I could fix this by engineering a system to streamline the process. Instead of calling multiple times to get hold of a receptionist for them to take a note of my medications, my details and for what doctor, I built a system just for that. The Doctors are registered as they join the practice, patients register as they require the service. Patients then send a request to the doctors for medication who, then check to see if that is what they have received previously, if so, they can approve it. If not, they can decline it. The Patient gets an update in the form of a coloured notice on their profile home page where they can pay for the delivery charge for the medications to be sent to their home. Patients can view outstanding requests on their home page ie any they have made that haven’t been approved, approved and declined requests.
@@ -17,7 +17,7 @@ During the trial period we had a number of patients test the site these are thei
     - “After an accident at work where some chemicals had damaged my voice I couldn’t speak for months, I was in terrible pain and was prescribed very strong pain killers. As this is a controlled substance, my wife couldn’t call up and reorder the prescription, I had to go down to the doctors and reorder it myself. Now I can just tap tap tap and they are on their way. This has helped me in so many ways. ”
  
 
-All of the designs of my site can be view [here](…/wireframes/Wireframes.pdf)
+All of the designs of my site can be view [here](https://github.com/Robertpokane/briarheart_medical/blob/master/wireframes/Wireframes.pdf)
  
 I have tried as much as I could to stick to the wireframes, but during the creation process there had been some changes, namely the doctors index page no longer has its own statement. It shares the same as Patients.
 
@@ -103,7 +103,7 @@ Dr. Smith
 
 The process of deploment for my project has been different to my previous projects, at the last minute i ran out of credit in GITPOD and had to redeploy through AWS Cloud 9, My commits have been fairly regular and I have been trying to use meaning full commit messages throughout the project. I sent all my static files and my image to S3 I created a new user with new permisions and a new S3 bucket. I got my keys and put them in the heroku config vars
 
-My working application can be found at [Heroku](https://git.heroku.com/briarheart.git)
+My working application can be found at [Heroku](hhttps://briarheart.herokuapp.com/)
 
 
 And at [Github](https://github.com/Robertpokane/briarheart_medical)

@@ -3,12 +3,12 @@
 <h3>Hello Dr {{ profile.first_name }} {{ profile.last_name }},</h3>
     <br>
     <hr>
-<h5>The bellow are your current requests so far for Medications:</h5>
+<h5>The below are your current requests so far for Medications:</h5>
     <hr>
     
     
     {% for obj in obj %}
-        {% if obj.actioned == false %}
+        {% if obj.actioned == False %}
             
             <div class="row">
             <p>
