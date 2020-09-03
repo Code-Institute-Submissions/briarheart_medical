@@ -22,7 +22,7 @@ def stripe_config(request):
 def create_checkout_session(request):
     
     if request.method == 'GET':
-        domain_url = 'https://7f403f7cf17a4931845b0aa936c64350.vfs.cloud9.us-east-1.amazonaws.com/'
+        domain_url = 'https://briarheart.herokuapp.com/'
         stripe.api_key = settings.STRIPE_SECRET_KEY
         try:
 
