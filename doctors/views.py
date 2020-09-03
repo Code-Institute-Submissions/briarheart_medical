@@ -90,9 +90,10 @@ def decline_med(request, pk):
     patient = order.patient
 
     if request.method == "POST":
+        order.declined = True
         order.approved = False
         order.actioned = True
-        order.decline = True
+        
         order.save()
         return redirect('doc_profile')
     

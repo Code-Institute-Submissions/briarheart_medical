@@ -44,10 +44,10 @@
             {% if obj.declined == True %}
                 <div class="row bg-danger text-white collapse show" id="collapseExample">
                     
-                    <div class="col-md-auto">
+                    <div >
                         <p>Your request for {{ obj.medicine_name }}, Has been declined. Please contact us on 0800 – 4868 – 2868 for a consultation </p> 
                     </div>
-                    <div class="offset-md-1">
+                    <div>
                         <a href="{% url 'mark_as_read' obj.id %}" class="btn btn-primary mb-1" id="{{obj.id}}">Remove notifiation</a>
                         
                     </div>
