@@ -115,3 +115,4 @@ And at [Github](https://github.com/Robertpokane/briarheart_medical)
 
 - Strip payment had been a particular issue for me so I adapted a tutorial from "https://testdriven.io/blog/django-stripe-tutorial/" to suit my site. The Auther of the artical is Michael Herman
 
+[![Build Status](https://travis-ci.org/Robertpokane/briarheart_medical.svg?branch=master)](https://travis-ci.org/Robertpokane/briarheart_medical)

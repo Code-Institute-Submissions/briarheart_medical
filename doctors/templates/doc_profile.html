@@ -12,12 +12,12 @@
             
             <div class="row">
             <p>
-                <div class="col-md-8">
+                <div class="col-sm-12 mt-2 col-lg-5">
                     <b> {{ obj.patient.first_name }} {{ obj.patient.last_name }}</b> Has requested <b>{{ obj.medicine_name }} {{ obj.dose }}mg</b> to be delivered to <b>{{ obj.city }}</b> , <b>{{ obj.postcode}}</b>
                 </div>  
                 <div class="offset-md-1">
                     <a href="{% url 'approve_med' obj.id %}"  class="btn btn-outline-success mb-1" >Approve</a> 
-                    <a href="{% url 'decline_med' obj.id %}" class="btn btn-outline-danger mb-1 ml-2">Decline</a>
+                    <a href="{% url 'decline_med' obj.id %}" class="btn btn-outline-danger mb-1 ml-5">Decline</a>
                 </div>
             </p>
             <br>
