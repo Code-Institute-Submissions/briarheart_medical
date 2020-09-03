@@ -32,7 +32,7 @@ SECRET_KEY = os. environ.get('SECRET_KEY')
  
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
  
 ALLOWED_HOSTS = [('7f403f7cf17a4931845b0aa936c64350.vfs.cloud9.us-east-1.amazonaws.com'), ('briarheart.herokuapp.com')]
