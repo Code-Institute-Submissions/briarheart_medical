@@ -1,6 +1,0 @@
-language: python
-python:
-  - "3.6"
-install: virtualenv --python=/usr/bin/python3.6 venv
-
-install: pip install --user -r requirements.txt
